@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_10_174753) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_10_184941) do
+  create_table "consulta", force: :cascade do |t|
+    t.string "horario"
+    t.date "data"
+    t.integer "medico_id", null: false
+    t.integer "paciente_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["medico_id"], name: "index_consulta_on_medico_id"
+    t.index ["paciente_id"], name: "index_consulta_on_paciente_id"
+  end
+
   create_table "enderecos", force: :cascade do |t|
     t.string "logradouro"
     t.string "complemento"
@@ -21,4 +32,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_10_174753) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "pacientes", force: :cascade do |t|
+    t.string "nome"
+    t.date "data_nascimento"
+    t.string "cpf"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "consulta", "medicos"
+  add_foreign_key "consulta", "pacientes"
 end
