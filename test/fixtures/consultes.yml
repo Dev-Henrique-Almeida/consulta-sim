@@ -3,11 +3,7 @@
 one:
   data: 2023-06-10
   horario: MyString
-  medico: one
-  paciente: one
 
 two:
   data: 2023-06-10
   horario: MyString
-  medico: two
-  paciente: two
