@@ -7,7 +7,6 @@ class CreateMedicos < ActiveRecord::Migration[7.0]
       t.string :email
       t.string :especialidade
       t.string :crm
-      t.references :consultas, null: false, foreign_key: true
 
       t.timestamps
     end

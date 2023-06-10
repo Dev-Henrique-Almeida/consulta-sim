@@ -7,7 +7,6 @@ one:
   email: MyString
   especialidade: MyString
   crm: MyString
-  consultas: one
 
 two:
   nome: MyString
@@ -16,4 +15,3 @@ two:
   email: MyString
   especialidade: MyString
   crm: MyString
-  consultas: two

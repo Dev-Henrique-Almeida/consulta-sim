@@ -14,7 +14,6 @@ class MedicosTest < ApplicationSystemTestCase
     visit medicos_url
     click_on "New medico"
 
-    fill_in "Consultas", with: @medico.consultas_id
     fill_in "Cpf", with: @medico.cpf
     fill_in "Crm", with: @medico.crm
     fill_in "Data nascimento", with: @medico.data_nascimento
@@ -31,7 +30,6 @@ class MedicosTest < ApplicationSystemTestCase
     visit medico_url(@medico)
     click_on "Edit this medico", match: :first
 
-    fill_in "Consultas", with: @medico.consultas_id
     fill_in "Cpf", with: @medico.cpf
     fill_in "Crm", with: @medico.crm
     fill_in "Data nascimento", with: @medico.data_nascimento

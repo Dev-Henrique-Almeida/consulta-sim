@@ -6,8 +6,7 @@ class CreateEnderecos < ActiveRecord::Migration[7.0]
       t.string :cep
       t.string :bairro
       t.string :cidade
-
-      t.timestamps
+      t.references :paciente, null: false, foreign_key: true
     end
   end
 end

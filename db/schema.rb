@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_10_191326) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_10_200603) do
   create_table "consulta", force: :cascade do |t|
     t.string "horario"
     t.date "data"
@@ -22,14 +22,25 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_10_191326) do
     t.index ["paciente_id"], name: "index_consulta_on_paciente_id"
   end
 
+  create_table "consultas", force: :cascade do |t|
+    t.date "data"
+    t.string "horario"
+    t.integer "medico_id", null: false
+    t.integer "paciente_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["medico_id"], name: "index_consultas_on_medico_id"
+    t.index ["paciente_id"], name: "index_consultas_on_paciente_id"
+  end
+
   create_table "enderecos", force: :cascade do |t|
     t.string "logradouro"
     t.string "complemento"
     t.string "cep"
     t.string "bairro"
     t.string "cidade"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer "paciente_id", null: false
+    t.index ["paciente_id"], name: "index_enderecos_on_paciente_id"
   end
 
   create_table "medicos", force: :cascade do |t|
@@ -39,10 +50,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_10_191326) do
     t.string "email"
     t.string "especialidade"
     t.string "crm"
-    t.integer "consultas_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["consultas_id"], name: "index_medicos_on_consultas_id"
   end
 
   create_table "pacientes", force: :cascade do |t|
@@ -56,5 +65,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_10_191326) do
 
   add_foreign_key "consulta", "medicos"
   add_foreign_key "consulta", "pacientes"
-  add_foreign_key "medicos", "consultas", column: "consultas_id"
+  add_foreign_key "consultas", "medicos"
+  add_foreign_key "consultas", "pacientes"
+  add_foreign_key "enderecos", "pacientes"
 end

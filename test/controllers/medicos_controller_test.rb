@@ -17,7 +17,7 @@ class MedicosControllerTest < ActionDispatch::IntegrationTest
 
   test "should create medico" do
     assert_difference("Medico.count") do
-      post medicos_url, params: { medico: { consultas_id: @medico.consultas_id, cpf: @medico.cpf, crm: @medico.crm, data_nascimento: @medico.data_nascimento, email: @medico.email, especialidade: @medico.especialidade, nome: @medico.nome } }
+      post medicos_url, params: { medico: { cpf: @medico.cpf, crm: @medico.crm, data_nascimento: @medico.data_nascimento, email: @medico.email, especialidade: @medico.especialidade, nome: @medico.nome } }
     end
 
     assert_redirected_to medico_url(Medico.last)
@@ -34,7 +34,7 @@ class MedicosControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update medico" do
-    patch medico_url(@medico), params: { medico: { consultas_id: @medico.consultas_id, cpf: @medico.cpf, crm: @medico.crm, data_nascimento: @medico.data_nascimento, email: @medico.email, especialidade: @medico.especialidade, nome: @medico.nome } }
+    patch medico_url(@medico), params: { medico: { cpf: @medico.cpf, crm: @medico.crm, data_nascimento: @medico.data_nascimento, email: @medico.email, especialidade: @medico.especialidade, nome: @medico.nome } }
     assert_redirected_to medico_url(@medico)
   end
 
