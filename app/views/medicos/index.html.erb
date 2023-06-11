@@ -5,10 +5,15 @@
 <div id="medicos">
   <% @medicos.each do |medico| %>
     <%= render medico %>
-    <p>
-      <%= link_to "Show this medico", medico %>
-    </p>
+      <%= button_to "Mostrar dados do medico", medico, method: :get, class: "btn btn-primary" %>
   <% end %>
 </div>
+<br>
+<form action="/medicos/new" method="get">
+  <button type="submit">Cadastrar um novo medico</button>
+</form>
 
-<%= link_to "New medico", new_medico_path %>
+<br>
+<form action="/" method="get">
+  <button type="submit">Voltar</button>
+</form>

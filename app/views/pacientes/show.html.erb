@@ -1,11 +1,76 @@
-<p style="color: green"><%= notice %></p>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Página de Paciente</title>
+  <style>
+      body {
+          font-family: Arial, sans-serif;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          height: 70vh;
+          margin: 0;
+          padding: 0;
+      }
 
-<%= render @paciente %>
+      .notice {
+          color: green;
+          text-align: center;
+      }
+
+      .paciente {
+          text-align: center;
+          margin-bottom: 20px;
+      }
+
+      .btn {
+          padding: 10px 20px;
+          font-size: 16px;
+          color: white;
+          border: none;
+          cursor: pointer;
+          margin-bottom: 10px;
+      }
+
+      .btn-primary {
+          background-color: #4CAF50;
+      }
+
+      .btn-primary:hover {
+          background-color: #45a049;
+      }
+
+      .btn-secondary {
+          background-color: #808080;
+      }
+
+      .btn-secondary:hover {
+          background-color: #666666;
+      }
+
+      .btn-danger {
+          background-color: #ff5555;
+      }
+
+      .btn-danger:hover {
+          background-color: #ff3333;
+      }
+  </style>
+</head>
+<body>
+<p class="notice"><%= notice %></p>
+
+<div class="paciente">
+  <%= render @paciente %>
+</div>
 
 <div>
-  <%= link_to "Editar esse paciente", edit_paciente_path(@paciente) %> |
-  <%= link_to "Voltar para os pacientes", pacientes_path %><br>
-  <%= link_to "Adicionar um médico", medicos_path%><br>
-
-  <!-- %= button_to "Destroy this paciente", @paciente, method: :delete %> -->
+  <%= button_to "Editar este paciente", edit_paciente_path(@paciente), method: :get, class: "btn btn-primary" %>
+  <br>
+  <%= button_to "Remover este paciente", @paciente, method: :delete, class: "btn btn-danger" %>
+  <br>
+  <%= button_to "Voltar", pacientes_path, method: :get, class: "btn btn-secondary" %>
 </div>
+</body>
+</html>

@@ -3,9 +3,10 @@
 <%= render @medico %>
 
 <div>
-  <%= link_to "Edit this medico", edit_medico_path(@medico) %> |
-  <%= link_to "Back to medicos", medicos_path %>
+  <%= button_to "Editar este medico", edit_medico_path(@medico), method: :get, class: "btn btn-primary" %>
   <br>
-  <%= link_to "Gerar consulta", consulta_path%>
+  <%= button_to "Remover este medico", @medico, method: :delete %>
+  <br>
+  <%= button_to "Voltar", medicos_path, method: :get, class: "btn btn-secondary" %>
 
 </div>

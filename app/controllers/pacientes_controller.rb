@@ -13,6 +13,7 @@ class PacientesController < ApplicationController
   # GET /pacientes/new
   def new
     @paciente = Paciente.new
+    @paciente.build_endereco
   end
 
   # GET /pacientes/1/edit
@@ -22,10 +23,11 @@ class PacientesController < ApplicationController
   # POST /pacientes or /pacientes.json
   def create
     @paciente = Paciente.new(paciente_params)
+    @paciente.endereco = Endereco.new(paciente_params[:endereco_attributes])
 
     respond_to do |format|
       if @paciente.save
-        format.html { redirect_to paciente_url(@paciente), notice: "Paciente was successfully created." }
+        format.html { redirect_to paciente_url(@paciente), notice: "Paciente foi cadastrado com sucesso." }
         format.json { render :show, status: :created, location: @paciente }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +40,7 @@ class PacientesController < ApplicationController
   def update
     respond_to do |format|
       if @paciente.update(paciente_params)
-        format.html { redirect_to paciente_url(@paciente), notice: "Paciente was successfully updated." }
+        format.html { redirect_to paciente_url(@paciente), notice: "Paciente foi atualizado com sucesso." }
         format.json { render :show, status: :ok, location: @paciente }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +54,7 @@ class PacientesController < ApplicationController
     @paciente.destroy
 
     respond_to do |format|
-      format.html { redirect_to pacientes_url, notice: "Paciente was successfully destroyed." }
+      format.html { redirect_to pacientes_url, notice: "Paciente foi removido com sucesso." }
       format.json { head :no_content }
     end
   end
@@ -65,6 +67,7 @@ class PacientesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def paciente_params
-      params.require(:paciente).permit(:nome, :data_nascimento, :cpf, :email)
+      params.require(:paciente).permit(:nome, :data_nascimento, :cpf, :email,
+                                       endereco_attributes: [:logradouro, :complemento, :cep, :bairro, :cidade])
     end
 end

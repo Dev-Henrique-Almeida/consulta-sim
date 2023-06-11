@@ -3,8 +3,10 @@
 <%= render @consultum %>
 
 <div>
-  <%= link_to "Edit this consultum", edit_consultum_path(@consultum) %> |
-  <%= link_to "Back to consulta", consulta_path %>
 
-  <%= button_to "Destroy this consultum", @consultum, method: :delete %>
+  <%= button_to "Editar esta consulta", edit_consultum_path(@consultum), method: :get, class: "btn btn-primary" %>
+  <br>
+  <%= button_to "Remover esta consulta", @consultum, method: :delete %>
+  <br>
+  <%= button_to "Voltar", consulta_path, method: :get, class: "btn btn-secondary" %>
 </div>

@@ -6,9 +6,16 @@
   <% @consulta.each do |consultum| %>
     <%= render consultum %>
     <p>
-      <%= link_to "Show this consultum", consultum %>
+      <%= button_to "Mostrar dados da consulta", consultum, method: :get, class: "btn btn-primary" %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New consultum", new_consultum_path %>
+<form action="/consulta/new" method="get">
+  <button type="submit">Cadastrar um nova consulta</button>
+</form>
+
+<br>
+<form action="/" method="get">
+  <button type="submit">Voltar</button>
+</form>

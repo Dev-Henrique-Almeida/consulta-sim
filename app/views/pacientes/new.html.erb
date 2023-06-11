@@ -1,10 +1,57 @@
-<h1>New paciente</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Novo paciente</title>
+  <style>
+      body {
+          font-family: Arial, sans-serif;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          height: 100vh;
+          margin: 0;
+          padding: 0;
+      }
+
+      h1 {
+          text-align: center;
+      }
+
+      .btn {
+          padding: 10px 20px;
+          font-size: 16px;
+          color: white;
+          border: none;
+          cursor: pointer;
+      }
+
+      .btn:hover {
+          opacity: 0.8;
+      }
+
+      .btn-primary {
+          background-color: #4CAF50;
+      }
+
+      .btn-primary:hover {
+          background-color: #45a049;
+      }
+
+      .btn-secondary {
+          background-color: gray;
+      }
+  </style>
+</head>
+<body>
+<h1>Novo paciente</h1>
 
 <%= render "form", paciente: @paciente %>
 
 <br>
 
 <div>
-  <%= button_to "Voltar para lista de pacientes", method: :pacientes_path %>
-
+  <%= button_to "Voltar para a lista de pacientes", pacientes_path, method: :get, class: "btn btn-secondary" %><br>
 </div>
+</body>
+</html>

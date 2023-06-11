@@ -1,10 +1,65 @@
-<h1>Editing paciente</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Editando o paciente</title>
+  <style>
+      body {
+          font-family: Arial, sans-serif;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          height: 70vh;
+          margin: 0;
+          padding: 0;
+      }
+
+      h1 {
+          text-align: center;
+      }
+
+      .btn {
+          padding: 10px 20px;
+          font-size: 16px;
+          color: white;
+          border: none;
+          cursor: pointer;
+      }
+
+      .btn:hover {
+          opacity: 0.8;
+      }
+
+      .btn-primary {
+          background-color: #4CAF50;
+      }
+
+      .btn-primary:hover {
+          background-color: #45a049;
+      }
+
+      .btn-gray {
+          background-color: gray;
+      }
+
+      .form-label {
+          font-weight: bold;
+      }
+  </style>
+</head>
+<body>
+<h1>Editando o paciente</h1>
 
 <%= render "form", paciente: @paciente %>
 
 <br>
 
 <div>
-  <%= link_to "Show this paciente", @paciente %> |
-  <%= link_to "Back to pacientes", pacientes_path %>
+  <%= button_to "Mostrar dados do paciente", @paciente, method: :get, class: "btn btn-primary" %>
+  <br>
+  <form action="/pacientes" method="get">
+    <button type="submit" class="btn btn-gray">Voltar</button>
+  </form>
 </div>
+</body>
+</html>

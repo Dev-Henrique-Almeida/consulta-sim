@@ -2,9 +2,12 @@
 
 <%= render "form", consultum: @consultum %>
 
-<br>
+  <br>
+  <div>
 
-<div>
-  <%= link_to "Show this consultum", @consultum %> |
-  <%= link_to "Back to consulta", consulta_path %>
+    <%= button_to "Mostrar dados da consulta", @consultum, method: :get, class: "btn btn-primary" %>
+    <br>
+    <form action="/consulta" method="get">
+      <button type="submit">Voltar</button>
+    </form>
 </div>

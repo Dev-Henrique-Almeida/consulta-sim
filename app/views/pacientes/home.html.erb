@@ -2,129 +2,61 @@
 <html>
 <head>
   <title>Página Inicial</title>
+  <style>
+      body {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          height: 70vh;
+          margin: 0;
+          padding: 0;
+          font-family: Arial, sans-serif;
+      }
+
+      h1 {
+          text-align: center;
+      }
+
+      form {
+          display: flex;
+          justify-content: center;
+          margin-top: 20px;
+      }
+
+      button {
+          padding: 10px 20px;
+          font-size: 16px;
+          background-color: #4CAF50;
+          color: white;
+          border: none;
+          cursor: pointer;
+      }
+
+      button:hover {
+          background-color: #45a049;
+      }
+  </style>
 </head>
 <body>
 <h1>Bem-vindo à Página Inicial</h1>
 
-<h2>Consulta</h2>
-<form action="/consulta" method="POST">
-  <label for="data">Data:</label>
-  <input type="date" id="data" name="data" required><br><br>
-
-  <label for="horario">Horário:</label>
-  <input type="text" id="horario" name="horario" required><br><br>
-
-  <label for="medico_id">ID do Médico:</label>
-  <input type="number" id="medico_id" name="medico_id" required><br><br>
-
-  <label for="paciente_id">ID do Paciente:</label>
-  <input type="number" id="paciente_id" name="paciente_id" required><br><br>
-
-  <input type="submit" value="Criar Consulta">
+<br>
+<h2>Consultas</h2>
+<form action="/consulta" method="get">
+  <button type="submit">Aba de consultas</button>
 </form>
 
-<h2>Endereço</h2>
-<form action="/endereco" method="POST">
-  <label for="logradouro">Logradouro:</label>
-  <input type="text" id="logradouro" name="logradouro" required><br><br>
-
-  <label for="complemento">Complemento:</label>
-  <input type="text" id="complemento" name="complemento"><br><br>
-
-  <label for="cep">CEP:</label>
-  <input type="text" id="cep" name="cep" required><br><br>
-
-  <label for="bairro">Bairro:</label>
-  <input type="text" id="bairro" name="bairro" required><br><br>
-
-  <label for="cidade">Cidade:</label>
-  <input type="text" id="cidade" name="cidade" required><br><br>
-
-  <label for="paciente_id">ID do Paciente:</label>
-  <input type="number" id="paciente_id" name="paciente_id" required><br><br>
-
-  <input type="submit" value="Criar Endereço">
+<br>
+<h2>Médicos</h2>
+<form action="/medicos" method="get">
+  <button type="submit">Aba dos médicos</button>
 </form>
 
-<h2>Médico</h2>
-<form action="/medico" method="POST">
-  <label for="nome">Nome:</label>
-  <input type="text" id="nome" name="nome" required><br><br>
-
-  <label for="data_nascimento">Data de Nascimento:</label>
-  <input type="date" id="data_nascimento" name="data_nascimento" required><br><br>
-
-  <label for="cpf">CPF:</label>
-  <input type="text" id="cpf" name="cpf" required><br><br>
-
-  <label for="email">Email:</label>
-  <input type="email" id="email" name="email" required><br><br>
-
-  <label for="especialidade">Especialidade:</label>
-  <input type="text" id="especialidade" name="especialidade" required><br><br>
-
-  <label for="crm">CRM:</label>
-  <input type="text" id="crm" name="crm" required><br><br>
-
-  <input type="submit" value="Criar Médico">
+<br>
+<h2>Pacientes</h2>
+<form action="/pacientes" method="get">
+  <button type="submit">Aba dos pacientes</button>
 </form>
-
-<h2>Paciente</h2>
-<form action="/paciente" method="POST">
-  <label for="nome">Nome:</label>
-  <input type="text" id="nome" name="nome" required><br><br>
-
-  <label for="data_nascimento">Data de Nascimento:</label>
-  <input type="date" id="data_nascimento" name="data_nascimento" required><br><br>
-
-  <label for="cpf">CPF:</label>
-  <input type="text" id="cpf" name="cpf" required><br><br>
-
-  <label for="email">Email:</label>
-  <input type="email" id="email" name="email" required><br><br>
-
-  <input type="submit" value="Criar Paciente">
-</form>
-
-<!-- Adicione um trecho de código para exibir a opção criada -->
-<% if @paciente %>
-  <h3>Paciente Criado:</h3>
-  <p>Nome: <%= @paciente.nome %></p>
-  <p>Data de Nascimento: <%= @paciente.data_nascimento %></p>
-  <p>CPF: <%= @paciente.cpf %></p>
-  <p>Email: <%= @paciente.email %></p>
-  <p>
-    <a href="/paciente/edit/<%= @paciente.id %>">Editar Paciente</a> |
-    <a href="/">Voltar</a>
-  </p>
-<% end %>
-
-<!-- Adicione um trecho de código para exibir a opção criada -->
-<% if @medico %>
-  <h3>Médico Criado:</h3>
-  <p>Nome: <%= @medico.nome %></p>
-  <p>Data de Nascimento: <%= @medico.data_nascimento %></p>
-  <p>CPF: <%= @medico.cpf %></p>
-  <p>Email: <%= @medico.email %></p>
-  <p>Especialidade: <%= @medico.especialidade %></p>
-  <p>CRM: <%= @medico.crm %></p>
-  <p>
-    <a href="/medico/edit/<%= @medico.id %>">Editar Médico</a> |
-    <a href="/">Voltar</a>
-  </p>
-<% end %>
-
-<!-- Adicione um trecho de código para exibir a opção criada -->
-<% if @consultum %>
-  <h3>Consulta Criada:</h3>
-  <p>Data: <%= @consultum.data %></p>
-  <p>Horário: <%= @consultum.horario %></p>
-  <p>Médico ID: <%= @consultum.medico_id %></p>
-  <p>Paciente ID: <%= @consultum.paciente_id %></p>
-  <p>
-    <a href="/consulta/edit/<%= @consultum.id %>">Editar Consulta</a> |
-    <a href="/">Voltar</a>
-  </p>
-<% end %>
 </body>
 </html>
