@@ -40,8 +40,8 @@
     <%= form.label :crm, style: "display: block" %>
     <%= form.text_field :crm %>
   </div>
-<br>
+  <br>
   <div>
-    <%= button_to "Cadastrar medico",  method: form.submit %>
+    <%= form.submit "Cadastrar um novo médico", class: "btn btn-primary", style: "background-color: #4CAF50;" %>
   </div>
 <% end %>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Consultas Agendadas</title>
+  <style>
+      body {
+          font-family: Arial, sans-serif;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          height: 70vh;
+          margin: 0;
+          padding: 0;
+      }
+
+      h1 {
+          text-align: center;
+      }
+
+      table {
+          width: 80%;
+          border-collapse: collapse;
+          margin-top: 20px;
+      }
+
+      th, td {
+          border: 1px solid black;
+          padding: 8px;
+          text-align: left;
+      }
+
+      th {
+          background-color: #4CAF50;
+          color: white;
+      }
+
+      p {
+          text-align: center;
+      }
+
+      .btn {
+          padding: 10px 20px;
+          font-size: 16px;
+          color: white;
+          border: none;
+          cursor: pointer;
+      }
+
+      .btn-gray {
+          background-color: gray;
+      }
+  </style>
+</head>
+<body>
+<h1>Consultas Agendadas</h1>
+
+<% if @consultas_agendadas.any? %>
+  <table>
+    <thead>
+    <tr>
+      <th>Paciente</th>
+      <th>Data</th>
+      <th>Hora</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @consultas_agendadas.each do |consulta| %>
+      <tr>
+        <td><%= consulta.paciente.nome %></td>
+        <td><%= consulta.data.strftime("%d/%m/%Y") %></td>
+        <td><%= consulta.horario %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>Nenhuma consulta agendada.</p>
+<% end %>
+<br>
+<form action="/medicos" method="get">
+  <button type="submit" class="btn btn-gray">Voltar</button>
+</form>
+
+</body>
+</html>

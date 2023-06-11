@@ -1,12 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Médicos</title>
+  <style>
+      body {
+          font-family: Arial, sans-serif;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          height: 70vh;
+          margin: 0;
+          padding: 0;
+      }
+
+      h1 {
+          text-align: center;
+      }
+
+      .btn {
+          padding: 10px 20px;
+          font-size: 16px;
+          color: white;
+          border: none;
+          cursor: pointer;
+      }
+
+      .btn:hover {
+          opacity: 0.8;
+      }
+
+      .btn-primary {
+          background-color: #4CAF50;
+      }
+
+      .btn-primary:hover {
+          background-color: #45a049;
+      }
+
+      .btn-secondary {
+          background-color: #808080;
+      }
+
+      .btn-secondary:hover {
+          background-color: #6e6e6e;
+      }
+
+      .btn-danger {
+          background-color: #ff3333;
+      }
+
+      .btn-danger:hover {
+          background-color: #cc0000;
+      }
+
+      .medico-details {
+          margin-bottom: 10px;
+      }
+
+      .medico-details p {
+          margin-bottom: 5px;
+      }
+
+      .btn-group {
+          margin-top: 20px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+      }
+  </style>
+</head>
+<body>
 <p style="color: green"><%= notice %></p>
 
-<%= render @medico %>
+<h1>Médicos</h1>
 
-<div>
-  <%= button_to "Editar este medico", edit_medico_path(@medico), method: :get, class: "btn btn-primary" %>
+<div class="medico-details">
+  <%= render @medico %>
+</div>
+
+<div class="btn-group">
+  <%= button_to "Consultas Agendadas", consultas_agendadas_medico_path(@medico), method: :get, class: "btn btn-primary" %>
+
   <br>
-  <%= button_to "Remover este medico", @medico, method: :delete %>
+  <%= button_to "Editar este médico", edit_medico_path(@medico), method: :get, class: "btn btn-primary" %>
+  <br>
+  <%= button_to "Remover este médico", @medico, method: :delete, class: "btn btn-danger" %>
   <br>
   <%= button_to "Voltar", medicos_path, method: :get, class: "btn btn-secondary" %>
-
 </div>
+
+</body>
+</html>

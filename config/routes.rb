@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :medicos do
+    get 'consultas_agendadas', on: :member
+  end
+
   resources :consulta
   resources :medicos
   resources :pacientes

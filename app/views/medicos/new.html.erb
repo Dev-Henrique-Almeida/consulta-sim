@@ -1,11 +1,49 @@
-<h1>New medico</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Novo Médico</title>
+  <style>
+      body {
+          font-family: Arial, sans-serif;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          height: 70vh;
+          margin: 0;
+          padding: 0;
+      }
+
+      h1 {
+          text-align: center;
+      }
+
+      .btn {
+          padding: 10px 20px;
+          font-size: 16px;
+          color: white;
+          border: none;
+          cursor: pointer;
+      }
+
+      .btn:hover {
+          opacity: 0.8;
+      }
+
+      .btn-secondary {
+          background-color: gray;
+      }
+  </style>
+</head>
+<body>
+<h1>Novo Médico</h1>
 
 <%= render "form", medico: @medico %>
 
 <br>
 
 <div>
-  <%= button_to "Voltar para a lista de consultas", consulta_path, method: :get, class: "btn btn-secondary" %><br>
-
-
+  <%= button_to "Voltar para a lista de médicos", medicos_path, method: :get, class: "btn btn-secondary" %>
 </div>
+</body>
+</html>

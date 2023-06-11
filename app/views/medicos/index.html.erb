@@ -1,19 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Médicos</title>
+  <style>
+      body {
+          font-family: Arial, sans-serif;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          height: 50vh;
+          margin: 0;
+          padding: 0;
+      }
+
+      h1 {
+          text-align: center;
+      }
+
+      #medicos {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-top: 20px;
+          overflow-y: auto;
+          max-height: 400px;
+      }
+
+      .medico {
+          margin-bottom: 10px;
+      }
+
+      .medico p {
+          margin-bottom: 5px;
+      }
+
+      .btn {
+          padding: 10px 20px;
+          font-size: 16px;
+          color: white;
+          border: none;
+          cursor: pointer;
+      }
+
+      .btn:hover {
+          opacity: 0.8;
+      }
+
+      .btn-primary {
+          background-color: #4CAF50;
+      }
+
+      .btn-primary:hover {
+          background-color: #45a049;
+      }
+
+      .btn-group {
+          margin-top: 20px;
+          display: flex;
+      }
+
+      .btn-group button {
+          margin-right: 10px;
+      }
+
+      .btn-gray {
+          background-color: gray;
+      }
+  </style>
+</head>
+<body>
 <p style="color: green"><%= notice %></p>
 
-<h1>Medicos</h1>
+<h1>Médicos</h1>
 
 <div id="medicos">
-  <% @medicos.each do |medico| %>
-    <%= render medico %>
-      <%= button_to "Mostrar dados do medico", medico, method: :get, class: "btn btn-primary" %>
+  <% @medicos.each_slice(2) do |medico1, medico2| %>
+    <div class="medico">
+      <div class="medico-details">
+        <%= render medico1 %>
+        <% if medico2.present? %>
+          <%= render medico2 %>
+        <% end %>
+      </div>
+      <br>
+      <%= button_to "Mostrar dados do médico", medico1, method: :get, class: "btn btn-primary" %>
+      <% if medico2.present? %>
+        <%= button_to "Mostrar dados do médico", medico2, method: :get, class: "btn btn-primary" %>
+      <% end %>
+    </div>
   <% end %>
 </div>
-<br>
-<form action="/medicos/new" method="get">
-  <button type="submit">Cadastrar um novo medico</button>
-</form>
+
+<div class="btn-group">
+  <form action="/medicos/new" method="get">
+    <button type="submit" class="btn btn-primary">Cadastrar um novo médico</button>
+  </form>
+</div>
 
 <br>
-<form action="/" method="get">
-  <button type="submit">Voltar</button>
-</form>
+
+<div class="btn-group">
+  <form action="/" method="get">
+    <button type="submit" class="btn btn-gray">Voltar</button>
+  </form>
+</div>
+
+</body>
+</html>

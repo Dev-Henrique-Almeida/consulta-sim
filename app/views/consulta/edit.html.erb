@@ -1,13 +1,88 @@
-<h1>Editing consultum</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Editar consulta</title>
+  <style>
+      body {
+          font-family: Arial, sans-serif;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          height: 70vh;
+          margin: 0;
+          padding: 0;
+      }
 
-<%= render "form", consultum: @consultum %>
+      h1 {
+          text-align: center;
+      }
 
-  <br>
-  <div>
+      .btn {
+          padding: 10px 20px;
+          font-size: 16px;
+          color: white;
+          border: none;
+          cursor: pointer;
+      }
 
+      .btn:hover {
+          opacity: 0.8;
+      }
+
+      .btn-primary {
+          background-color: #4CAF50;
+      }
+
+      .btn-primary:hover {
+          background-color: #45a049;
+      }
+
+      .btn-secondary {
+          background-color: gray;
+      }
+
+      .form-container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+      }
+
+      .form-group {
+          margin-bottom: 10px;
+      }
+
+      .form-label {
+          display: block;
+      }
+
+      .form-field {
+          width: 100%;
+          padding: 5px;
+          font-size: 14px;
+      }
+
+      .form-button {
+          margin-top: 20px;
+      }
+  </style>
+</head>
+<body>
+<h1>Editando consulta</h1>
+
+<div class="form-container">
+  <%= render "form", consultum: @consultum %>
+
+  <div class="form-button">
     <%= button_to "Mostrar dados da consulta", @consultum, method: :get, class: "btn btn-primary" %>
-    <br>
+  </div>
+
+  <div class="form-button">
     <form action="/consulta" method="get">
-      <button type="submit">Voltar</button>
+      <button type="submit" class="btn btn-secondary">Voltar</button>
     </form>
+  </div>
 </div>
+
+</body>
+</html>

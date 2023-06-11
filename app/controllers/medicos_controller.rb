@@ -6,8 +6,15 @@ class MedicosController < ApplicationController
     @medicos = Medico.all
   end
 
+  def consultas_agendadas
+    @medico = Medico.find(params[:id])
+    @consultas_agendadas = @medico.consultas_agendadas
+  end
+
+
   # GET /medicos/1 or /medicos/1.json
   def show
+    @consultas_agendadas = @medico.consultas_agendadas
   end
 
   # GET /medicos/new
