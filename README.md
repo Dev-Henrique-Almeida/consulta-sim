@@ -9,3 +9,9 @@ Projeto que consiste em gerar um sistema que possua pacientes, e médicos. Onde 
 *   ruby version "3.1.1" 
 *   Rails 7.0.2.2
 
+## Como usar
+
+* Primeiro abrir o terminal e digitar "bundle install" (para instalar as dependências necessárias).
+* Logo após, digitar no terminal "rails db:migrate" (para gerar as tabelas no banco de dados).
+* E por fim, digitar no terminal "Run s" (para iniciar o programa).
+
