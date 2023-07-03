@@ -17759,3 +17759,79 @@ Processing by PacientesController#home as HTML
 Completed 200 OK in 10ms (Views: 8.5ms | ActiveRecord: 0.0ms | Allocations: 3664)
 
 
+  [1m[35m (7.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (9.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (7.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateEnderecos (20230610174753)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "enderecos" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "logradouro" varchar, "complemento" varchar, "cep" varchar, "bairro" varchar, "cidade" varchar, "paciente_id" integer NOT NULL, CONSTRAINT "fk_rails_c05557f98d"
+FOREIGN KEY ("paciente_id")
+  REFERENCES "pacientes" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_enderecos_on_paciente_id" ON "enderecos" ("paciente_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230610174753"]]
+  [1m[36mTRANSACTION (5.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreatePacientes (20230610181037)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "pacientes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar, "data_nascimento" date, "cpf" varchar, "email" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230610181037"]]
+  [1m[36mTRANSACTION (7.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateMedicos (20230610200603)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "medicos" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" varchar, "data_nascimento" date, "cpf" varchar, "email" varchar, "especialidade" varchar, "crm" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230610200603"]]
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateConsulta (20230610215711)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "consulta" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "data" date, "horario" varchar, "medico_id" integer NOT NULL, "paciente_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_2eeeecd976"
+FOREIGN KEY ("medico_id")
+  REFERENCES "medicos" ("id")
+, CONSTRAINT "fk_rails_99e75a4b64"
+FOREIGN KEY ("paciente_id")
+  REFERENCES "pacientes" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_consulta_on_medico_id" ON "consulta" ("medico_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_consulta_on_paciente_id" ON "consulta" ("paciente_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230610215711"]]
+  [1m[36mTRANSACTION (7.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-07-03 16:18:53.776431"], ["updated_at", "2023-07-03 16:18:53.776431"]]
+  [1m[36mTRANSACTION (6.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2023-07-03 14:12:34 -0300
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PacientesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pacientes/home.html.erb within layouts/application
+  Rendered pacientes/home.html.erb within layouts/application (Duration: 2.0ms | Allocations: 452)
+  Rendered layout layouts/application.html.erb (Duration: 242.3ms | Allocations: 59422)
+Completed 200 OK in 257ms (Views: 249.9ms | ActiveRecord: 0.0ms | Allocations: 62242)
+
+
+Started GET "/medicos" for 127.0.0.1 at 2023-07-03 14:12:37 -0300
+Processing by MedicosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering medicos/index.html.erb within layouts/application
+  [1m[36mMedico Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "medicos"[0m
+  ↳ app/views/medicos/index.html.erb:78:in `each_slice'
+  [1m[36mMedico Load (0.1ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos"[0m
+  ↳ app/views/medicos/index.html.erb:78:in `each_slice'
+  Rendered medicos/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 2623)
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | Allocations: 5554)
+Completed 200 OK in 19ms (Views: 10.5ms | ActiveRecord: 0.7ms | Allocations: 9249)
+
+
+Started GET "/medicos/new" for 127.0.0.1 at 2023-07-03 14:12:43 -0300
+Processing by MedicosController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering medicos/new.html.erb within layouts/application
+  Rendered medicos/_form.html.erb (Duration: 19.7ms | Allocations: 4428)
+  Rendered medicos/new.html.erb within layouts/application (Duration: 20.9ms | Allocations: 4905)
+  Rendered layout layouts/application.html.erb (Duration: 25.3ms | Allocations: 7739)
+Completed 200 OK in 32ms (Views: 25.8ms | ActiveRecord: 0.3ms | Allocations: 12685)
+
+
