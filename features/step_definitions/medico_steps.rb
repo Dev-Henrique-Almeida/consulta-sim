@@ -7,12 +7,12 @@ end
 Given('seleciono o medico com CRM {string}') do |crm|
   @medico = Medico.create(nome: "Nome do Medico", email: "medico123@gmail.com", especialidade: "Especialidade", crm: crm)
   @medico = Medico.find_by(crm: crm)
-  raise "Médico com CRM #{crm} não encontrado" if @medico.nil?
+  raise "Medico com CRM #{crm} nao encontrado" if @medico.nil?
 end
 
 When('clico em remover o medico com CRM {string}') do |crm|
   @medico = Medico.find_by(crm: crm)
-  raise "Médico com CRM #{crm} não encontrado" if @medico.nil?
+  raise "Medico com CRM #{crm} nao encontrado" if @medico.nil?
   visit medico_path(@medico)
   click_on 'Remover'
   @medico.destroy
@@ -46,6 +46,7 @@ When('clico em cadastrar um novo medico') do
   fill_in 'Data nascimento', with: @medico_attributes[:data_nascimento]
   fill_in 'Especialidade', with: @medico_attributes[:especialidade]
   click_on 'Cadastrar'
+
 end
 
 Then('vejo uma mensagem que o medico foi cadastrado com sucesso') do
