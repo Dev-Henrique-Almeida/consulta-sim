@@ -17835,3 +17835,104 @@ Processing by MedicosController#new as HTML
 Completed 200 OK in 32ms (Views: 25.8ms | ActiveRecord: 0.3ms | Allocations: 12685)
 
 
+Started GET "/medicos/new" for 127.0.0.1 at 2023-07-03 14:50:07 -0300
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MedicosController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering medicos/new.html.erb within layouts/application
+  Rendered medicos/_form.html.erb (Duration: 13.4ms | Allocations: 4691)
+  Rendered medicos/new.html.erb within layouts/application (Duration: 15.9ms | Allocations: 5447)
+  Rendered layout layouts/application.html.erb (Duration: 84.2ms | Allocations: 49776)
+Completed 200 OK in 113ms (Views: 90.6ms | ActiveRecord: 0.5ms | Allocations: 61326)
+
+
+Started GET "/medicos" for 127.0.0.1 at 2023-07-03 14:50:09 -0300
+Processing by MedicosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering medicos/index.html.erb within layouts/application
+  [1m[36mMedico Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "medicos"[0m
+  ↳ app/views/medicos/index.html.erb:78:in `each_slice'
+  [1m[36mMedico Load (0.1ms)[0m  [1m[34mSELECT "medicos".* FROM "medicos"[0m
+  ↳ app/views/medicos/index.html.erb:78:in `each_slice'
+  Rendered medicos/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 2013)
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 4843)
+Completed 200 OK in 9ms (Views: 7.1ms | ActiveRecord: 0.4ms | Allocations: 5368)
+
+
+Started GET "/" for 127.0.0.1 at 2023-07-03 14:50:10 -0300
+Processing by PacientesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pacientes/home.html.erb within layouts/application
+  Rendered pacientes/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 216)
+  Rendered layout layouts/application.html.erb (Duration: 4.8ms | Allocations: 3365)
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.0ms | Allocations: 4175)
+
+
+Started GET "/pacientes" for 127.0.0.1 at 2023-07-03 14:50:12 -0300
+Processing by PacientesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pacientes/index.html.erb within layouts/application
+  [1m[36mPaciente Load (0.1ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes"[0m
+  ↳ app/views/pacientes/index.html.erb:78
+  Rendered pacientes/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1290)
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 4130)
+Completed 200 OK in 14ms (Views: 6.1ms | ActiveRecord: 0.1ms | Allocations: 6738)
+
+
+Started GET "/pacientes/new" for 127.0.0.1 at 2023-07-03 14:50:13 -0300
+Processing by PacientesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pacientes/new.html.erb within layouts/application
+  Rendered pacientes/_form.html.erb (Duration: 3.0ms | Allocations: 3268)
+  Rendered pacientes/new.html.erb within layouts/application (Duration: 4.5ms | Allocations: 3712)
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 6541)
+Completed 200 OK in 28ms (Views: 9.2ms | ActiveRecord: 0.7ms | Allocations: 16348)
+
+
+Started GET "/pacientes/new" for 127.0.0.1 at 2023-07-03 14:54:37 -0300
+Processing by PacientesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pacientes/new.html.erb within layouts/application
+  Rendered pacientes/_form.html.erb (Duration: 2.3ms | Allocations: 2013)
+  Rendered pacientes/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 2136)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 4836)
+Completed 200 OK in 9ms (Views: 7.4ms | ActiveRecord: 0.0ms | Allocations: 5371)
+
+
+Started GET "/pacientes" for 127.0.0.1 at 2023-07-03 14:54:39 -0300
+Processing by PacientesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pacientes/index.html.erb within layouts/application
+  [1m[36mPaciente Load (0.1ms)[0m  [1m[34mSELECT "pacientes".* FROM "pacientes"[0m
+  ↳ app/views/pacientes/index.html.erb:78
+  Rendered pacientes/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 788)
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | Allocations: 3487)
+Completed 200 OK in 20ms (Views: 18.1ms | ActiveRecord: 0.1ms | Allocations: 3798)
+
+
+Started GET "/" for 127.0.0.1 at 2023-07-03 14:54:40 -0300
+Processing by PacientesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pacientes/home.html.erb within layouts/application
+  Rendered pacientes/home.html.erb within layouts/application (Duration: 0.0ms | Allocations: 20)
+  Rendered layout layouts/application.html.erb (Duration: 18.1ms | Allocations: 2880)
+Completed 200 OK in 22ms (Views: 21.0ms | ActiveRecord: 0.0ms | Allocations: 3175)
+
+
+Started GET "/consulta" for 127.0.0.1 at 2023-07-03 14:54:41 -0300
+Processing by ConsultaController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering consulta/index.html.erb within layouts/application
+  [1m[36mConsultum Load (0.1ms)[0m  [1m[34mSELECT "consulta".* FROM "consulta"[0m
+  ↳ app/views/consulta/index.html.erb:76
+  Rendered consulta/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1297)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 4244)
+Completed 200 OK in 14ms (Views: 8.6ms | ActiveRecord: 0.1ms | Allocations: 6277)
+
+
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
